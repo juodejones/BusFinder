@@ -1,4 +1,4 @@
-package com.jones.busfinder
+package com.jones.busfinder.data
 
 data class Bus (
     var id: Integer? = null,
