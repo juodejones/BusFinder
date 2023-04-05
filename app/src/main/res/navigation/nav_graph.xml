@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.jones.busfinder.ui.fragments.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_busesFragment"
+            app:destination="@id/busesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/busesFragment"
+        android:name="com.jones.busfinder.ui.fragments.BusesFragment"
+        android:label="BusRoutesFragment"
+        tools:layout="@layout/fragment_buses">
+        <argument
+            android:name="searchType"
+            app:argType="integer" />
+        <argument
+            android:name="input1"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="input2"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_busesFragment_to_busViewFragment"
+            app:destination="@id/busViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/busViewFragment"
+        android:name="com.jones.busfinder.ui.fragments.BusViewFragment"
+        android:label="BusViewFragment"
+        tools:layout="@layout/fragment_bus_view">
+        <argument
+            android:name="busID"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>

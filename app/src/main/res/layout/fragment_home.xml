@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bgcolor"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".ui.MainActivity">
+
+    <TextView
+        android:id="@+id/search_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:text="Seach Buses by"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/button_ll"
+        android:layout_below="@+id/search_by"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/id_bt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_button"
+            android:text="id" />
+
+        <Button
+            android:id="@+id/sd_bt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="2"
+            android:background="@color/transparent"
+            android:text="source-destin" />
+
+        <Button
+            android:id="@+id/stop_bt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:text="stop" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/id_input_ll"
+        android:layout_below="@id/button_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/enter_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginVertical="10dp"
+            android:textSize="20sp"
+            android:text="@string/enter_id" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/input_et1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:background="@drawable/background_edit_text"/>
+
+        <TextView
+            android:id="@+id/enter_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginVertical="10dp"
+            android:textSize="20sp"
+            android:text="@string/enter_destin"
+            android:visibility="gone"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/input_et2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:background="@drawable/background_edit_text"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/search_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Search"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>
