@@ -3,7 +3,9 @@ package com.jones.busfinder.ui
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.jones.busfinder.App
 import com.jones.busfinder.R
 
 class SplashActivity : AppCompatActivity() {
@@ -13,9 +15,13 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         supportActionBar?.hide()
 
-//        val lottieAnimationView = findViewById<LottieAnimationView>(R.id.splash_lottie)
-//        lottieAnimationView.playAnimation()
+        Toast.makeText(this,"Connecting to Database", Toast.LENGTH_LONG).show()
 
+//        try {
+//            Thread.sleep(2000)
+//        }catch (e: InterruptedException) {
+//            e.printStackTrace()
+//        }
 //        App.instance.isDataAvailable.observe(this) {
 //            if (it!!) {
 //                val intent = Intent(this, MainActivity::class.java)

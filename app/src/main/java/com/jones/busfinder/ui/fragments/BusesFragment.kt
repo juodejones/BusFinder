@@ -51,20 +51,23 @@ class BusesFragment : Fragment(), BusesRvAdapter.BusClickListener {
             viewModel.getById(navArgs.input1!!)!!.observe(this.viewLifecycleOwner) {
                 recyclerViewAdapter = BusesRvAdapter(requireContext(), true, it, null, this)
                 binding.busesRv.adapter = recyclerViewAdapter
-                binding.notFoundTv.visibility = View.GONE
+                if (it.isNotEmpty()) binding.notFoundTv.visibility = View.GONE
+                else binding.notFoundTv.visibility = View.VISIBLE
             }
         } else if (searchType == 1) {
             viewModel.getBySD(navArgs.input1!!, navArgs.input2!!)!!
                 .observe(this.viewLifecycleOwner) {
                     recyclerViewAdapter = BusesRvAdapter(requireContext(), true, it, null, this)
                     binding.busesRv.adapter = recyclerViewAdapter
-                    binding.notFoundTv.visibility = View.GONE
+                    if (it.isNotEmpty()) binding.notFoundTv.visibility = View.GONE
+                    else binding.notFoundTv.visibility = View.VISIBLE
                 }
         } else if (searchType == 2) {
             viewModel.getByStop(navArgs.input1!!)!!.observe(this.viewLifecycleOwner) {
                 recyclerViewAdapter = BusesRvAdapter(requireContext(), true, it, null, this)
                 binding.busesRv.adapter = recyclerViewAdapter
-                binding.notFoundTv.visibility = View.GONE
+                if (it.isNotEmpty()) binding.notFoundTv.visibility = View.GONE
+                else binding.notFoundTv.visibility = View.VISIBLE
             }
         } else {
             binding.busesRv.visibility = View.GONE

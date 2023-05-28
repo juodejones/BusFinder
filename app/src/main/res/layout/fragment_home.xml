@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_bgcolor"
+    android:background="@color/white"
     android:orientation="vertical"
     android:padding="10dp"
     tools:context=".ui.MainActivity">
@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_margin="10dp"
         android:text="Seach Buses by"
-        android:textColor="@color/white"
+        android:textColor="@color/main_bgcolor"
         android:textSize="20sp" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -66,7 +66,7 @@
             android:id="@+id/enter_tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/main_bgcolor"
             android:layout_marginVertical="10dp"
             android:textSize="20sp"
             android:text="@string/enter_id" />
@@ -75,7 +75,7 @@
             android:id="@+id/input_et1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/main_bgcolor"
             android:textSize="18sp"
             android:padding="10dp"
             android:background="@drawable/background_edit_text"/>
@@ -84,7 +84,7 @@
             android:id="@+id/enter_tv2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/main_bgcolor"
             android:layout_marginVertical="10dp"
             android:textSize="20sp"
             android:text="@string/enter_destin"
@@ -94,7 +94,7 @@
             android:id="@+id/input_et2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/main_bgcolor"
             android:textSize="18sp"
             android:padding="10dp"
             android:visibility="gone"

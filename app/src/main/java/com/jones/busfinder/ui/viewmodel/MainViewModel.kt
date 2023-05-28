@@ -27,15 +27,16 @@ class MainViewModel(
 
     fun getById(id: String): MutableLiveData<List<Bus?>>? {
         App.instance.busList.observe(app.viewLifecycleOwner) { buses ->
-            busList.postValue(buses.filter { it?.id?.equals(id)!! }.toList())
+            busList.postValue(buses.filter { it?.id?.lowercase().equals(id.lowercase()) }.toList())
         }
         Log.d("MainViewModel", "getByID: ${busList.value?.size}")
         return busList
     }
 
     fun getByStop(stop: String): MutableLiveData<List<Bus?>>? {
+        val st = stop[0].uppercase() + stop.substring(1,stop.length)
         App.instance.busList.observe(app.viewLifecycleOwner) { buses ->
-            busList.postValue(buses.filter { it?.stopList?.containsKey(stop)!! }.toList())
+            busList.postValue(buses.filter { it?.stopList?.containsKey(st)!! }.toList())
         }
         Log.d("MainViewModel", "getByStop: ${busList.value?.size}")
         return busList

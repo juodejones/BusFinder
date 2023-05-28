@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_bgcolor">
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/notFound_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sorry No Buses Found!"
-        android:textColor="@color/white"
+        android:textColor="@color/main_bgcolor"
         android:textSize="20sp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

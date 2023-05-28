@@ -12,12 +12,12 @@ import com.jones.busfinder.App
 import com.jones.busfinder.data.Bus
 import com.jones.busfinder.databinding.FragmentBusViewBinding
 import com.jones.busfinder.ui.adapter.BusesRvAdapter
+import java.util.*
 
-class BusViewFragment : Fragment(), BusesRvAdapter.BusClickListener {
+class BusViewFragment : Fragment() {
 
     private val navArgs: BusViewFragmentArgs by navArgs()
     private lateinit var binding: FragmentBusViewBinding
-    private lateinit var recyclerViewAdapter: BusesRvAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +30,8 @@ class BusViewFragment : Fragment(), BusesRvAdapter.BusClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.busStopsRv.layoutManager =
+            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         App.instance.busList.observe(this.viewLifecycleOwner) { busList ->
             if (busList?.isNotEmpty()!!) {
                 busList.forEach { bus ->
@@ -44,18 +46,21 @@ class BusViewFragment : Fragment(), BusesRvAdapter.BusClickListener {
                             append("Bus Reaches " + bus?.reachLocation)
                             append(" by " + bus?.reachTime)
                         }
-                        recyclerViewAdapter =
-                            BusesRvAdapter(requireContext(), false, null, bus?.stopList, this)
-                        binding.busStopsRv.layoutManager =
-                            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+//                        Log.d("MyInfoTag", "onViewCreated: ${bus?.stopList.toString()}")
+                        val list: List<Map.Entry<String, Double>> = LinkedList<Map.Entry<String, Double>>(bus?.stopList!!.entries)
+                        Collections.sort(list) { p0, p1 -> p0?.value!!.compareTo(p1?.value!!) }
+                        val temp: HashMap<String, Double> = LinkedHashMap()
+                        for ((key, value) in list) { temp[key] = value }
+                        val recyclerViewAdapter =
+                            BusesRvAdapter(requireContext(), false, null, temp, object : BusesRvAdapter.BusClickListener{
+                                override fun onBusClick(bus: Bus) {
+                                    //Nothing to do
+                                }
+                            })
                         binding.busStopsRv.adapter = recyclerViewAdapter
                     }
                 }
             }
         }
-    }
-
-    override fun onBusClick(bus: Bus) {
-        //Nothing to do here
     }
 }

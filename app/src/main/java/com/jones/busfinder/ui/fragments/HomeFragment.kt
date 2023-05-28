@@ -92,6 +92,8 @@ class HomeFragment : Fragment() {
                     Toast.makeText(requireContext(), "Fields are empty!", Toast.LENGTH_SHORT).show()
                 }
             }
+            binding.inputEt1.setText("")
+            binding.inputEt2.setText("")
         }
 
         return binding.root
