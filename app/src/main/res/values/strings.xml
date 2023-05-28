@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BusFinder</string>
+    <string name="enter_id">Enter your Bus Id : </string>
+    <string name="enter_source">Enter your Source : </string>
+    <string name="enter_destin">Enter your Destination : </string>
+    <string name="enter_stop">Enter the Busstop name : </string>
 </resources>
